@@ -43,7 +43,7 @@ public class PersonaController {
         return persona != null ? ResponseEntity.ok(persona) : ResponseEntity.notFound().build();
     }
 
- // 4. metodo de ejemplo para verbo DELETE
+ // 2. metodo de ejemplo para verbo DELETE
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable String id) {
         personaService.deleteById(id);
@@ -57,7 +57,7 @@ public class PersonaController {
         return ResponseEntity.noContent().build();
     }
     
- // Metodo de ejemplo para verbo PATCH
+ // 4. Metodo de ejemplo para verbo PATCH
     @PatchMapping("/personas/{id}")
     public ResponseEntity<Void> updateData(@PathVariable String id, @RequestBody Persona updatedPersona) {
         Optional<Persona> optionalPersona = personaService.findById(id);
@@ -85,7 +85,7 @@ public class PersonaController {
         }
     }
     
- // 6. metodo de ejemplo para verbo HEAD
+ // 5. metodo de ejemplo para verbo HEAD
     @RequestMapping(value = "/personas/{id}", method = RequestMethod.HEAD)
     public ResponseEntity<?> handleHeadRequest(@PathVariable String id) {
         if (personaService.existsById(id)) {
@@ -97,7 +97,7 @@ public class PersonaController {
         }
     }
 
-    // 7. metodo de ejemplo para verbo OPTIONS
+    // 6. metodo de ejemplo para verbo OPTIONS
     @RequestMapping(value = "/personas", method = RequestMethod.OPTIONS)
     public ResponseEntity<Void> optionsUpdate() {
         return ResponseEntity.ok().build();
